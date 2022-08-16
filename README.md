@@ -37,3 +37,64 @@ Zillow data for single family property with the transaction date in the year of 
   -  longitude : Longitude of the middle of the parcel multiplied by 10e6. 
   -  city : City in which the property is located (if any). 
   -  log_error : log error=log(Zestimate)−log(SalePrice). transaction_date : House transaction date.
+
+# Pipeline
+
+## Acquire Data
+  acquire.py module has all necessary functions to to connect to  SQL database and generate the zillow dataframe.
+
+## Data Preparation
+### prepare.py module has all the functions 
+    1. address missing null values by dropping columns missing 60% and rows missing 75%
+    2.Handle Outliers function to handle some extreme values in the columns. Some outliers in columns like bedroom , bathroom and house values were manualy     handled.
+    3. Convert the latitude and longitude
+    4. engineer new features like yearbuilt, structure_dollar_per_sqft, land_dollar_per_sqft 
+
+## Data Split
+  data was split into train, test and validate samples
+
+## Data Imputation
+  using impute function some columns with missing data were imputed
+
+## Data Exploration
+  Goal: Address the initial questions through visualizations and conducting statististics test.
+
+## Clustering
+  Three different cluster with different features created
+  1. Cluster1 using longitude, latitude and county_dummies(Los_Angeles, Orange, Ventura)
+  2. cluster2 using structure value, land value and house value
+  3. cluster3 using yearbuilt, bed and bath ratio, structure_dollar_per_sqft, land_dollar_per_sqft
+  
+
+## Feature Selection
+  Select k best and recursive feature elimantion method were used to select best features.
+
+##  Modeling and Evaluation
+  Regression models were developed to beat the baseline model.
+  Models created: 
+    1.linear Regression
+    2. Lasso-lars
+    3. Tweedieregressor
+    4.2nd Degree Polynomial
+    5. Interaction only polynomial
+    
+- RMSE scores calculated for each model
+## Evaluate on best performing model
+  test RMSE = 0.17
+  
+ ## Conclusion
+  ## Summary
+  none of my models developed were able to beat the baseline model. And also the clusters created were not that of useful for the project.
+  
+ ## Recommendations
+  1. Different appraoch for creating clusters that could be helpful in reducing logerror.
+  2. Explore more to create meaningful clusters
+ 
+ ## Next Steps
+  1. Change the parameters on models to see if any model perform best.
+  2. may be linear regression model is the not the best approach here so I would like to build different models.
+
+
+
+  
+    
