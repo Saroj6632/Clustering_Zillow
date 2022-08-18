@@ -38,6 +38,15 @@ Zillow data for single family property with the transaction date in the year of 
   -  city : City in which the property is located (if any). 
   -  log_error : log error=log(Zestimate)−log(SalePrice). transaction_date : House transaction date.
 
+# Steps to Reproduce My work
+In order to reproduce my final report and the model following process should be followed
+
+- env.py file that has credentials for successful connection with CodeUp DB Server.
+- clone my project repo(including aquire.py and prepare.py).
+- libraries to be used are pandas, matplotlib, seaborn, numpy, sklearn
+- finally you should be able to run final_project report.
+
+
 # Pipeline
 
 ## Acquire Data
